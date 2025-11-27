@@ -1,5 +1,5 @@
 """
- Jose L Balcazar, ORCID 0000-0003-4248-4528 
+Autor: Jose L Balcazar, ORCID 0000-0003-4248-4528 
 Copyleft: MIT License (https://en.wikipedia.org/wiki/MIT_License)
 
 Headers for functions in abstract board for simple tic-tac-toe-like games, 2021.
