@@ -50,11 +50,17 @@ def set_board_up(stones_per_player = 4):
         '''
         pass
 
-    def draw_txt(end = False):
+    def draw_txt(tablero, ganador = False):
         'Use ASCII characters to draw the board.'
-        pass
 
-    def crear_tablero(n):
+        if not ganador:
+            for fila in tablero:
+                for car in fila:
+                    print(f'{car},', end='')
+
+    
+
+    def crear_tablero(n = 3):
         tablero = []
         for x in range(n):
             lista_auxiliar = []

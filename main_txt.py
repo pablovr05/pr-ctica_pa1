@@ -23,17 +23,16 @@ from abs_board_h import set_board_up
 #     returns: bool "stone still selected", next player (may be the same), 
 #     and bool "end of game"
 #   the call to draw_txt(end) prints a text-based version of the board
-stones, select_st, move_st, draw_txtl, crear_tablero = set_board_up()
+stones, select_st, move_st, draw_txt, crear_tablero = set_board_up()
 
-print(crear_tablero(5))
+tablero = crear_tablero()
 
 # set_board_up() already selects a first stone
 stone_selected = True
 
 # Loop until game ends
 end = False
-draw_txt(False)
-
+draw_txt(tablero, False)
 while not end:
     while not stone_selected:
         i, j = input("Select stone coordinates: ").split() 
