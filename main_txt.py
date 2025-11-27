@@ -6,11 +6,13 @@ Text handling of a simple tic-tac-toe-like board, 2021.
 Intended for Grau en Intel-ligencia Artificial, Programacio i Algorismes 1.
 """
 
+
+
 # Import initialization of the separately programmed abstract board:
-from abs_board import set_board_up
+from abs_board_h import set_board_up
 
 # Prepare board:
-# this will set up all stones as unplayed, select a first stone to play,
+# this will set up all stones as unplayed, select a first stone to 1play,
 # and obtain functions to handle them as follows:
 #   the call stones() allows one to loop on all stones,
 #   the call select_st(i, j) marks as selected the stone at these coordinates,
@@ -21,7 +23,9 @@ from abs_board import set_board_up
 #     returns: bool "stone still selected", next player (may be the same), 
 #     and bool "end of game"
 #   the call to draw_txt(end) prints a text-based version of the board
-stones, select_st, move_st, draw_txt = set_board_up()
+stones, select_st, move_st, draw_txtl, crear_tablero = set_board_up()
+
+print(crear_tablero(5))
 
 # set_board_up() already selects a first stone
 stone_selected = True
@@ -32,7 +36,7 @@ draw_txt(False)
 
 while not end:
     while not stone_selected:
-        i, j = input("Select stone coordinates: ").split()
+        i, j = input("Select stone coordinates: ").split() 
         stone_selected = select_st(int(i), int(j))
         draw_txt(end)
     while stone_selected and not end:
@@ -42,12 +46,3 @@ while not end:
 
 # Wait for the user to look at the screen before ending the program.
 input('\nGame over.') 
-
-
-
-
-
-
-
-
-

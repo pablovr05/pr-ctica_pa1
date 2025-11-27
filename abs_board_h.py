@@ -17,7 +17,6 @@ from collections import namedtuple
 
 Stone = namedtuple('Stone', ('x', 'y', 'color'))
 
-
 def set_board_up(stones_per_player = 4):
     'Init stones and board, prepare functions to provide, act as their closure'
 
@@ -55,6 +54,18 @@ def set_board_up(stones_per_player = 4):
         'Use ASCII characters to draw the board.'
         pass
 
-    # return these 4 functions to make them available to the main program
-    return stones, select_st, move_st, draw_txt
+    def crear_tablero(n):
+        tablero = []
+        for x in range(n):
+            lista_auxiliar = []
+            for y in range(n):
+                lista_auxiliar.append(0)
+            tablero.append(lista_auxiliar)
+        return tablero
+    
+    #El 0 posición vacia
+    #El 1 ficha del jugador 1
+    #El 2 ficha del jugador 2
 
+    # return these 4 functions to make them available to the main program
+    return stones, select_st, move_st, draw_txt, crear_tablero

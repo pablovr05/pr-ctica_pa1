@@ -21,7 +21,7 @@ pygame.display.set_caption("A name here for your game")
 clock = pygame.time.Clock()
 
 # Import initialization of the separately programmed abstract board:
-from abs_board import set_board_up
+from abs_board_h import set_board_up
 
 # Prepare board:
 # this will set up all stones as unplayed, select a first stone to play,
