@@ -20,7 +20,17 @@ Stone = namedtuple('Stone', ('x', 'y', 'color'))
 def set_board_up(stones_per_player = 4):
     'Init stones and board, prepare functions to provide, act as their closure'
 
+    def crear_tablero(n = 3):
+        tablero = []
+        for x in range(n):
+            lista_auxiliar = []
+            for y in range(n):
+                lista_auxiliar.append(0)
+            tablero.append(lista_auxiliar)
+        return tablero
+
     # init board and game data here
+    board = crear_tablero()
 
     def stones():
         "return iterable with the stones already played"
@@ -50,28 +60,16 @@ def set_board_up(stones_per_player = 4):
         '''
         pass
 
-    def draw_txt(tablero, ganador = False):
+    def draw_txt(ganador = False):
         'Use ASCII characters to draw the board.'
-
         if not ganador:
-            for fila in tablero:
+            for fila in board:
                 for car in fila:
                     print(f'{car},', end='')
-
-    
-
-    def crear_tablero(n = 3):
-        tablero = []
-        for x in range(n):
-            lista_auxiliar = []
-            for y in range(n):
-                lista_auxiliar.append(0)
-            tablero.append(lista_auxiliar)
-        return tablero
     
     #El 0 posición vacia
     #El 1 ficha del jugador 1
     #El 2 ficha del jugador 2
 
     # return these 4 functions to make them available to the main program
-    return stones, select_st, move_st, draw_txt, crear_tablero
+    return stones, select_st, move_st, draw_txt
