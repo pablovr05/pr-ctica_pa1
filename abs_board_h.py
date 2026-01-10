@@ -9,9 +9,9 @@ I would prefer to do everything in terms of object-oriented programming though.
 
 # abs_board_h.py (o abs_board.py)
 
-from constants import BSIZ, NO_PLAYER
+from constants import BSIZ, NO_PLAYER, ST_PLAYER
 
-def set_board_up(stones_per_player=4):
+def set_board_up(stones_per_player=ST_PLAYER):
     # Tablero: NO_PLAYER = vacio, 0 jugador 0, 1 jugador 1
     board = []
     for i in range(BSIZ):

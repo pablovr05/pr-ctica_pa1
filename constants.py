@@ -1,7 +1,13 @@
 
-BSIZ = 3 # board side size
+BSIZ = 3  # Este número define el tamaño del tablero tablero, BSIZ x BSIZ
 
-ST_PLAYER = 4 # stones per player
+TOTAL_CASILLAS = BSIZ * BSIZ
+
+# Cada jugador tendrá (N^2 - 1) / 2 piedras si ese valor es par
+if (TOTAL_CASILLAS - 1) % 2 != 0:
+	raise ValueError("(N^2 - 1) debe ser par; cambia BSIZ para que funcione")
+
+ST_PLAYER = (TOTAL_CASILLAS - 1) // 2  # piedras por jugador
 
 # Define the colors we will use in RGB format
 BLACK =   (  0,   0,   0)

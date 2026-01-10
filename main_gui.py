@@ -35,7 +35,7 @@ from abs_board_h import set_board_up
 #     returns: bool "stone still selected", next player (may be the same), 
 #     and bool "end of game"
 #   the call to draw_txt(end) prints a text-based version of the board
-stones, select_st, move_st, draw_txt = set_board_up()
+stones, select_st, move_st, draw_txt = set_board_up(ST_PLAYER)
 
 # Grid:
 def trans_coord(x, y):
@@ -50,10 +50,19 @@ def draw_square(screen, i, j):
           (ROOM + SEP + i*(SLOT + SEP), SEP + j*(SLOT + SEP) + SLOT)
         ))
 
-def draw_stone(screen, i, j, color):
-    pygame.draw.circle(screen, color, 
-        (ROOM + 0.5*SEP + (i + 0.5)*(SLOT + SEP), 0.5*SEP + (j + 0.5)*(SLOT + SEP)), 
-        RAD)
+def draw_stone(screen, i, j, player):
+    """Draw a cross for player 0 and a circle outline for player 1."""
+    coordenada_x = ROOM + 0.5 * SEP + (i + 0.5) * (SLOT + SEP)
+    coordenada_y = 0.5 * SEP + (j + 0.5) * (SLOT + SEP)
+    color = PLAYER_COLOR[player]
+
+    if player == 0:
+        arm = int(RAD * 0.7)
+        width = max(2, int(RAD * 0.2))
+        pygame.draw.line(screen, color, (coordenada_x - arm, coordenada_y - arm), (coordenada_x + arm, coordenada_y + arm), width)
+        pygame.draw.line(screen, color, (coordenada_x + arm, coordenada_y - arm), (coordenada_x - arm, coordenada_y + arm), width)
+    else:
+        pygame.draw.circle(screen, color, (coordenada_x, coordenada_y), RAD, width=max(2, int(RAD * 0.2)))
 
 def draw_board(curr_player = 0, end = False):
     'on fresh screen, draw grid, stones, player turn mark, then make it appear'

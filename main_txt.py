@@ -6,6 +6,8 @@ Text handling of a simple tic-tac-toe-like board, 2021.
 Intended for Grau en Intel-ligencia Artificial, Programacio i Algorismes 1.
 """
 
+# Import initialization of the separately programmed abstract board:
+from abs_board_h import set_board_up
 
 
 """
