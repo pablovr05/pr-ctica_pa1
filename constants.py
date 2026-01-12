@@ -27,3 +27,6 @@ WIDTH = HEIGHT + ROOM              # extra at both sides
 RAD = SLOT / 3                     # circle radius
 
 NO_PLAYER = -1
+
+# Modo de juego: "default" (quien hace 3 en raya gana) o "misery" (quien hace 3 en raya pierde)
+GAME_MODE = "castañas"

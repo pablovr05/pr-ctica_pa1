@@ -19,6 +19,7 @@ Intended for Grau en Intel-ligencia Artificial, Programacio i Algorismes 1.
 """
 
 import os
+from constants import GAME_MODE
 from abs_board_h import set_board_up
 
 
@@ -57,5 +58,9 @@ while not end:
 # Wait for the user to look at the screen before ending the program.
 winner = get_winner()
 if winner != -1:
-    print(f"Jugador {winner + 1} ha ganado.")
+    final_winner = winner if GAME_MODE == "default" else 1 - winner
+    if GAME_MODE == "misery":
+        print(f"Modo misery: jugador {final_winner + 1} ha ganado.")
+    else:
+        print(f"Jugador {final_winner + 1} ha ganado.")
 input("\nGame over. Press Enter to exit.")

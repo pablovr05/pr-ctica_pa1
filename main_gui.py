@@ -74,7 +74,12 @@ def draw_board(curr_player = 0, end = False, winner = None):
         screen.fill(WHITE)
         message = "Juego terminado"
         if winner in (0, 1):
-            message = f"Jugador {winner + 1} ha ganado"
+            final_winner = winner
+            if GAME_MODE == "misery":
+                final_winner = 1 - winner
+                message = f"Jugador {final_winner + 1} ha ganado"
+            else:
+                message = f"Jugador {final_winner + 1} ha ganado"
         font = pygame.font.SysFont(None, 64)
         text = font.render(message, True, BLACK)
         text_rect = text.get_rect(center=(WIDTH // 2, HEIGHT // 2))
