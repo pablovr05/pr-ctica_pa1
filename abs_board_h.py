@@ -7,9 +7,13 @@ Intended for Grau en Intel-ligencia Artificial, Programacio i Algorismes 1.
 I would prefer to do everything in terms of object-oriented programming though.
 """
 
+#MADE BY: Alejandro y Pablo
+
 # abs_board_h.py (o abs_board.py)
 
 from constants import BSIZ, NO_PLAYER, ST_PLAYER
+
+# -----------------------------------------------------------------------------------------------------------------------------------
 
 def set_board_up(stones_per_player=ST_PLAYER):
     # Tablero: NO_PLAYER = vacio, 0 jugador 0, 1 jugador 1
@@ -262,3 +266,5 @@ def set_board_up(stones_per_player=ST_PLAYER):
         return winner
 
     return stones, select_st, move_st, draw_txt, get_winner
+
+# -----------------------------------------------------------------------------------------------------------------------------------

@@ -17,7 +17,7 @@ from constants import *
 # set the height and width of the screen.
 pygame.init()
 screen = pygame.display.set_mode( (WIDTH, HEIGHT) )
-pygame.display.set_caption("A name here for your game")
+pygame.display.set_caption("3RatllaPR1PA1")
 clock = pygame.time.Clock()
 
 # Import initialization of the separately programmed abstract board:
