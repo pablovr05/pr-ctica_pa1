@@ -20,6 +20,8 @@ def set_board_up(stones_per_player=ST_PLAYER):
             fila.append(NO_PLAYER)
         board.append(fila)
 
+    winner = NO_PLAYER
+
     # Piedras de cada jugador: guardamos sus posiciones.
     # Si una piedra no está puesta: (-1, -1)
     stones0 = []
@@ -72,6 +74,8 @@ def set_board_up(stones_per_player=ST_PLAYER):
         return -1
 
     def check_end():
+        nonlocal winner
+        winner = NO_PLAYER
         # True si hay una fila/columna/diagonal completa del mismo jugador
         # filas
         for i in range(BSIZ):
@@ -82,6 +86,7 @@ def set_board_up(stones_per_player=ST_PLAYER):
                     if board[i][j] != first:
                         ok = False
                 if ok:
+                    winner = first
                     return True
 
         # columnas
@@ -93,6 +98,7 @@ def set_board_up(stones_per_player=ST_PLAYER):
                     if board[i][j] != first:
                         ok = False
                 if ok:
+                    winner = first
                     return True
 
         # diagonal principal
@@ -103,6 +109,7 @@ def set_board_up(stones_per_player=ST_PLAYER):
                 if board[k][k] != first:
                     ok = False
             if ok:
+                winner = first
                 return True
 
         # diagonal secundaria
@@ -113,6 +120,7 @@ def set_board_up(stones_per_player=ST_PLAYER):
                 if board[k][BSIZ - 1 - k] != first:
                     ok = False
             if ok:
+                winner = first
                 return True
 
         return False
@@ -250,4 +258,7 @@ def set_board_up(stones_per_player=ST_PLAYER):
         if end:
             print(">>> FIN (hay 3 en raya)")
 
-    return stones, select_st, move_st, draw_txt
+    def get_winner():
+        return winner
+
+    return stones, select_st, move_st, draw_txt, get_winner

@@ -31,7 +31,7 @@ def clear_console():
 
 
 # Prepare board
-stones, select_st, move_st, draw_txt = set_board_up()
+stones, select_st, move_st, draw_txt, get_winner = set_board_up()
 
 # set_board_up() already selects a first stone
 stone_selected = True
@@ -55,4 +55,7 @@ while not end:
         draw_txt(end)
 
 # Wait for the user to look at the screen before ending the program.
+winner = get_winner()
+if winner != -1:
+    print(f"Jugador {winner + 1} ha ganado.")
 input("\nGame over. Press Enter to exit.")
